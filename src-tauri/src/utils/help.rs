@@ -201,16 +201,6 @@ macro_rules! t {
     };
 }
 
-/// 将字节数转换为可读的流量字符串
-/// 支持 B/s、KB/s、MB/s、GB/s 的自动转换
-///
-/// # Examples
-/// ```
-/// assert_eq!(format_bytes_speed(1000), "1000B/s");
-/// assert_eq!(format_bytes_speed(1024), "1.0KB/s");
-/// assert_eq!(format_bytes_speed(1024 * 1024), "1.0MB/s");
-/// ```
-#[cfg(target_os = "macos")]
 pub fn format_bytes_speed(speed: u64) -> String {
     if speed < 1024 {
         format!("{}B/s", speed)
@@ -222,6 +212,15 @@ pub fn format_bytes_speed(speed: u64) -> String {
         format!("{:.1}GB/s", speed as f64 / 1024.0 / 1024.0 / 1024.0)
     }
 }
+/// 将字节数转换为可读的流量字符串
+/// 支持 B/s、KB/s、MB/s、GB/s 的自动转换
+///
+/// # Examples
+/// ```
+/// assert_eq!(format_bytes_speed(1000), "1000B/s");
+/// assert_eq!(format_bytes_speed(1024), "1.0KB/s");
+/// assert_eq!(format_bytes_speed(1024 * 1024), "1.0MB/s");
+/// ```
 
 #[test]
 fn test_format_bytes_speed() {
