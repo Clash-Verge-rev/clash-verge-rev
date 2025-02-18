@@ -66,7 +66,7 @@ pub async fn delete_profile(index: String) -> CmdResult {
     Ok(())
 }
 
-/// 修改profiles的
+/// 修改profiles
 #[tauri::command]
 pub async fn patch_profiles_config(profiles: IProfiles) -> CmdResult {
     wrap_err!({ Config::profiles().draft().patch_config(profiles) })?;
@@ -87,7 +87,7 @@ pub async fn patch_profiles_config(profiles: IProfiles) -> CmdResult {
     }
 }
 
-/// 修改某个profile item的
+/// 修改某个profile item
 #[tauri::command]
 pub fn patch_profile(index: String, profile: PrfItem) -> CmdResult {
     wrap_err!(Config::profiles().data().patch_item(index, profile))?;
