@@ -32,6 +32,8 @@
   "global": "全局",
   "direct": "直连",
   "script": "脚本",
+  "Enable Hidden Invalid Network": "隐藏无效节点",
+  "Disable Hidden Invalid Network": "展示所有节点",
   "Location": "当前节点",
   "Delay check": "延迟测试",
   "Sort by default": "默认排序",

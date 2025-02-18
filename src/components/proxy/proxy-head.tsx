@@ -13,6 +13,8 @@ import {
   WifiTetheringOffRounded,
   SortByAlphaRounded,
   SortRounded,
+  SignalWifiStatusbar4Bar,
+  SignalWifiStatusbarConnectedNoInternet4,
 } from "@mui/icons-material";
 import { useVerge } from "@/hooks/use-verge";
 import type { HeadState } from "./use-head-state";
@@ -32,7 +34,14 @@ interface Props {
 export const ProxyHead = (props: Props) => {
   const { sx = {}, url, groupName, headState, onHeadState } = props;
 
-  const { showType, sortType, filterText, textState, testUrl } = headState;
+  const {
+    hiddenInvalidNetwork,
+    showType,
+    sortType,
+    filterText,
+    textState,
+    testUrl,
+  } = headState;
 
   const { t } = useTranslation();
   const [autoFocus, setAutoFocus] = useState(false);
@@ -54,6 +63,25 @@ export const ProxyHead = (props: Props) => {
 
   return (
     <Box sx={{ display: "flex", alignItems: "center", gap: 0.5, ...sx }}>
+      <IconButton
+        size="small"
+        color="inherit"
+        title={
+          [
+            t("Enable Hidden Invalid Network"),
+            t("Disable Hidden Invalid Network"),
+          ][hiddenInvalidNetwork ? 0 : 1]
+        }
+        onClick={() =>
+          onHeadState({ hiddenInvalidNetwork: !hiddenInvalidNetwork })
+        }
+      >
+        {hiddenInvalidNetwork && (
+          <SignalWifiStatusbar4Bar style={{ fill: "#0072ea" }} />
+        )}
+        {!hiddenInvalidNetwork && <SignalWifiStatusbarConnectedNoInternet4 />}
+      </IconButton>
+
       <IconButton
         size="small"
         color="inherit"

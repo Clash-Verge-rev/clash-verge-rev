@@ -9,6 +9,8 @@ export interface HeadState {
   filterText: string;
   textState: "url" | "filter" | null;
   testUrl: string;
+  // 隐藏无效网络
+  hiddenInvalidNetwork: boolean;
 }
 
 type HeadStateStorage = Record<string, Record<string, HeadState>>;
@@ -21,6 +23,7 @@ export const DEFAULT_STATE: HeadState = {
   filterText: "",
   textState: null,
   testUrl: "",
+  hiddenInvalidNetwork: false,
 };
 
 export function useHeadStateNew() {

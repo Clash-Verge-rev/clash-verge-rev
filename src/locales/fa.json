@@ -32,6 +32,8 @@
   "global": "جهانی",
   "direct": "مستقیم",
   "script": "اسکریپت",
+  "Enable Hidden Invalid Network": "شبکه نامعتبر پنهان",
+  "Disable Hidden Invalid Network": "نمایش آیتم های پروکسی",
   "Location": "موقعیت",
   "Delay check": "بررسی تأخیر",
   "Sort by default": "مرتب‌سازی بر اساس پیش‌فرض",
